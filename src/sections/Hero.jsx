@@ -8,6 +8,8 @@ import HeroText from "../components/HeroText";
 import ParallaxBackground from "../components/ParallaxBackground";
 import { Astronaut } from "../components/Astronaut";
 import Loader from "../components/Loader";
+import { Environment } from "@react-three/drei";
+
 
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
@@ -24,17 +26,34 @@ const Hero = () => {
       {/* 3D Canvas layer */}
       <figure className="pointer-events-none absolute inset-0 z-10">
         <Canvas
-          camera={{ position: [0, 1, 3] }}
+        
+          camera={{ position: [0, 1.2, 2.5], fov: 45 }}
+
           gl={{ alpha: true }}
           style={{ background: "transparent" }}
+          
         >
-          <Suspense fallback={<Loader />}>
-            <Float>
-              <Astronaut
-                scale={isMobile ? 0.23 : 0.3}
-                position={isMobile ? [0, -1.5, 0] : [0, -1, 0]}
-              />
-            </Float>
+
+           <Suspense fallback={<Loader />}>
+
+            {/* 🔥 LIGHTS (THIS FIXES BLACK MODEL) */}
+            <ambientLight intensity={1.2} />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
+            <directionalLight position={[-5, 3, 5]} intensity={1} />
+
+            {/* 🌆 Environment lighting for realism */}
+            <Environment preset="city" />
+          <Astronaut
+  scale={1}
+  position={[0.2, -1, 0]}
+  rotation={[0, 0.5, 0]}
+/>
+
+              {/* <Astronaut
+                scale={isMobile ? 0.45 : 0.6}
+                position={isMobile ? [0, -2, 3.2] : [0, -2, 2]}
+              /> */}
+          
             <Rig />
           </Suspense>
         </Canvas>

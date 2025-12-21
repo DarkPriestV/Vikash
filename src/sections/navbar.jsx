@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { getCloudinaryImage } from "../utils/cloudinary";
 function Navigation() {
   return (
     <ul className="nav-ul">
@@ -42,10 +43,14 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
           >
-            <img
-              src={isOpen ? "<img src={`${import.meta.env.BASE_URL}assets/close.svg`} />" : "<img src={`${import.meta.env.BASE_URL}assets/menu.svg`} />"}
+             <img
+              src={
+                isOpen
+                  ? getCloudinaryImage("close", "w_24,h_24,q_auto,f_auto")
+                  : getCloudinaryImage("menu", "w_24,h_24,q_auto,f_auto")
+              }
+              alt="menu toggle"
               className="w-6 h-6"
-              alt="toggle"
             />
           </button>
           <nav className="hidden sm:flex">
