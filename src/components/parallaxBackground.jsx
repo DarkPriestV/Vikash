@@ -1,4 +1,6 @@
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { getCloudinaryImage } from "../utils/cloudinary";
+
 
 const ParallaxBackground = () => {
   const { scrollYProgress } = useScroll();
@@ -9,7 +11,7 @@ const ParallaxBackground = () => {
   const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
   const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
 
-  const base = import.meta.env.BASE_URL;
+  
 
   return (
     <section className="pointer-events-none absolute inset-0 bg-black/40">
@@ -17,7 +19,8 @@ const ParallaxBackground = () => {
         <div
           className="absolute inset-0 -z-50"
           style={{
-            backgroundImage: `url(${base}sky.jpg)`,
+           backgroundImage: `url(${getCloudinaryImage("sky_lkgixu")})`,
+
             backgroundSize: "cover",
             backgroundPosition: "bottom",
           }}
@@ -26,7 +29,7 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 -z-40"
           style={{
-            backgroundImage: `url(${base}mountain-3.png)`,
+            backgroundImage: `url(${getCloudinaryImage("mountain-3_wvsqbi")})`,
             backgroundSize: "cover",
             y: mountain3Y,
           }}
@@ -35,7 +38,7 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 -z-30"
           style={{
-            backgroundImage: `url(${base}planets.png)`,
+            backgroundImage: `url(${getCloudinaryImage("planets_tj85w0")})`,
             backgroundSize: "cover",
             x: planetsX,
           }}
@@ -44,7 +47,7 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 -z-20"
           style={{
-            backgroundImage: `url(${base}mountain-2.png)`,
+            backgroundImage: `url(${getCloudinaryImage("mountain-2_u7oply")})`,
             backgroundSize: "cover",
             y: mountain2Y,
           }}
@@ -53,7 +56,7 @@ const ParallaxBackground = () => {
         <motion.div
           className="absolute inset-0 -z-10"
           style={{
-            backgroundImage: `url(${base}mountain-1.png)`,
+            backgroundImage: `url(${getCloudinaryImage("mountain-1_n5qwjx")})`,
             backgroundSize: "cover",
             y: mountain1Y,
           }}

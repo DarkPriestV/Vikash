@@ -1,3 +1,5 @@
+
+
 export const myProjects = [
   {
     id: 1,
@@ -12,70 +14,38 @@ export const myProjects = [
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/EMS.png",
-    tags: [
-      {
-        id: 1,
-        name: "Java",
-        path: "/assets/logos/Java.gif",
-      },
-      {
-        id: 2,
-        name: " Spring Boot",
-        path: "/assets/logos/Springboot.png",
-      },
-      {
-        id: 3,
-        name: "Hibernate",
-        path: "/assets/logos/hibernate.svg",
-      },
-      {
-        id: 4,
-        name: "MySQL",
-        path: "/assets/logos/mysql.png",
-      },
+      image: "Screenshot_1_z9zgax",
+   tags: [
+  { id: 1, name: "Java", icon: "Java" },
+  { id: 2, name: "Spring Boot", icon: "Springboot" },
+  { id: 3, name: "Hibernate", icon: "hibernate1 " },
+  { id: 4, name: "MySQL", icon: "mysql" },
+],
+
+  },
+  {
+    id: 2,
+    title: "Text-utils",
+    description:
+      "Text Utils is a responsive web application designed to perform quick and efficient text transformations. It helps users analyze, clean, and manipulate text data with ease, making it useful for students, developers, content writers, and data professionals:",
+  subDescription:[
+      "The application allows users to convert text to uppercase or lowercase, remove extra spaces, view real-time word and character counts with a preview, copy text to the clipboard in one click, switch between dark and light modes, and enjoy a fully responsive UI across desktop and mobile devices.",
+      "The project is built using React.js for component-based UI development, JavaScript (ES6+) for text manipulation logic, HTML5 and CSS3 for structure and styling, and Bootstrap for responsive design..",
+      
     ],
+    href: "",
+    logo: "",
+    image: "Screenshot_4_q50yal",
+    tags: [
+  { id: 1, name: "react", icon: "react" },
+  { id: 2, name: "Javascipt", icon: "javascript" },
+  { id: 3, name: "Bootstrap", icon: "bootstrap1" },
+  
+],
   },
   // {
-  //   id: 2,
-  //   title: "Authentication & Authorization System",
-  //   description:
-  //     "A secure authentication and authorization system using Auth0 for seamless user management.",
-  //   subDescription: [
-  //     "Integrated Auth0 for authentication, supporting OAuth, JWT, and multi-factor authentication.",
-  //     "Implemented role-based access control (RBAC) for fine-grained user permissions.",
-  //     "Developed a React-based frontend with Tailwind CSS for a sleek user experience.",
-  //     "Connected to a secure SQLite database for user data storage.",
-  //   ],
-  //   href: "",
-  //   logo: "",
-  //   image: "/assets/projects/auth-system.jpg",
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "Auth0",
-  //       path: "/assets/logos/auth0.svg",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "React",
-  //       path: "/assets/logos/react.svg",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "SQLite",
-  //       path: "/assets/logos/sqlite.svg",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "TailwindCSS",
-  //       path: "/assets/logos/tailwindcss.svg",
-  //     },
-  //   ],
-  // },
-  // {
   //   id: 3,
-  //   title: "Blazor Web App",
+  //   title: "Teamsphere",
   //   description:
   //     "A modern, interactive web application built with Blazor WebAssembly and .NET Core.",
   //   subDescription: [
@@ -110,43 +80,26 @@ export const myProjects = [
   //     },
   //   ],
   // },
-  // {
-  //   id: 4,
-  //   title: "C++ Game Engine",
-  //   description:
-  //     "A lightweight C++ game engine designed for 2D and 3D game development.",
-  //   subDescription: [
-  //     "Built a powerful rendering engine using OpenGL and C++.",
-  //     "Developed a physics engine with collision detection and particle effects.",
-  //     "Implemented a scripting system for easy game customization.",
-  //     "Optimized performance with multi-threading and efficient memory management.",
-  //   ],
-  //   href: "",
-  //   logo: "",
-  //   image: "/assets/projects/game-engine.jpg",
-  //   tags: [
-  //     {
-  //       id: 1,
-  //       name: "C++",
-  //       path: "/assets/logos/cplusplus.svg",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "C#",
-  //       path: "/assets/logos/csharp.svg",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Git",
-  //       path: "/assets/logos/git.svg",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Microsoft",
-  //       path: "/assets/logos/microsoft.svg",
-  //     },
-  //   ],
-  // },
+  {
+    id: 4,
+    title: "Telecom Churn Analysis",
+    description:
+      "Telecom Churn Analysis is a data analytics project that examines customer data to identify churn patterns and key factors affecting customer retention through data cleaning, analysis, and visualization.",
+   subDescription: [
+  "Performed data cleaning and preprocessing using Python (Pandas, NumPy) to ensure high-quality input data.",
+  "Conducted exploratory data analysis (EDA) with Matplotlib and Seaborn to identify churn patterns and trends.",
+  "Built churn-related KPIs and customer segmentation logic using SQL and Python.",
+  "Created interactive dashboards in Power BI to visualize churn drivers and support data-driven retention strategies.",
+],
+    href: "",
+    logo: "",
+    image: "Screenshot_5_p0hdy3",
+   tags: [
+  { id: 1, name: "Python", icon: "python" },
+  { id: 2, name: "PowerBI", icon: "powerbi" },
+  { id: 3, name: "Excel", icon: "excel" },
+   ],
+  },
   // {
   //   id: 5,
   //   title: "WordPress Custom Theme",
@@ -224,20 +177,21 @@ export const myProjects = [
 ];
 
 export const mySocials = [
-  {
+   {
+    id: 1,
     name: "WhatsApp",
     href: "",
-    icon: "/assets/socials/whatsApp.svg",
+    icon: "whatsApp", // Cloudinary publicId
   },
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/vikashjdev/",
-    icon: "/assets/socials/linkedIn.svg",
+    icon: "linkedIn",
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/the_darkpriest/",
-    icon: "/assets/socials/instagram.svg",
+    icon: "instagram",
   },
 ];
 

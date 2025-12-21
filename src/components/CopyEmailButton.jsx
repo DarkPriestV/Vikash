@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { getCloudinaryImage } from "../utils/cloudinary";
+
 const CopyEmailButton = () => {
   const [copied, setCopied] = useState(false);
   const email = "vikashjatav.dev@gmail.com";
@@ -29,7 +31,11 @@ const CopyEmailButton = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
-            <img src="assets/copy-done.svg" className="w-5" alt="copy Icon" />
+            <img
+              src={getCloudinaryImage("copy-done", "w_20,q_auto")}
+              className="w-5"
+              alt="Copied icon"
+            />
             Email has Copied
           </motion.p>
         ) : (
@@ -41,7 +47,11 @@ const CopyEmailButton = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.1 }}
           >
-            <img src="assets/copy.svg" className="w-5" alt="copy icon" />
+            <img
+              src={getCloudinaryImage("copy", "w_20,q_auto")}
+              className="w-5"
+              alt="Copy icon"
+            />
             Copy Email Address
           </motion.p>
         )}

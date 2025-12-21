@@ -3,6 +3,8 @@ import Card from "../components/Card";
 import { Globe } from "../components/globe";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/FrameWorks";
+import { getCloudinaryImage } from "../utils/cloudinary";
+
 
 const About = () => {
   const grid2Container = useRef();
@@ -11,18 +13,30 @@ const About = () => {
       <h2 className="text-heading">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12">
         {/* Grid 1 */}
-        <div className="flex items-end grid-default-color grid-1">
-          <img
-            src="assets/coding-pov.png"
-            className="absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]"
-          />
-          <div className="z-10">
-            <p className="headtext">Hi, I'm Vikash Jatav</p>
-            <p className="subtext">
-              Over the last 2 years, I developed my frontend and backend dev
-              skills to deliver dynamic and software and web applications and gained some extra skills.
-            </p>
-          </div>
+       {/* Grid 1 */}
+<div className="relative grid-default-color grid-1 overflow-hidden">
+
+  {/* Background Image */}
+  <img
+    src={getCloudinaryImage("pic", "w_800,q_auto")}
+    alt="Vikash Jatav"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Bottom Gradient Overlay */}
+  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+  {/* Text Overlay */}
+  <div className="relative z-10 flex flex-col justify-end h-full p-6">
+    <p className="headtext text-white/90">
+      Hi, I'm Vikash Jatav
+    </p>
+    <p className="subtext text-white/70 max-w-md">
+      Over the last 2 years, I developed my frontend and backend dev skills to
+      deliver dynamic software and web applications and gained some extra skills.
+    </p>
+  </div>
+
           <div className="absolute inset-x-0 pointer-evets-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
         </div>
         {/* Grid 2 */}
@@ -60,18 +74,18 @@ const About = () => {
               containerRef={grid2Container}
             />
             <Card
-              style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/csharp-pink.png"
+              style={{ rotate: "30deg", top: "70%", left: "70%" }}  
+              image="java"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/dotnet-pink.png"
+              image="mysql"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/blazor-pink.png"
+              image="powerbi"
               containerRef={grid2Container}
             />
           </div>

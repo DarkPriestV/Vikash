@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ProjectDetails from "./ProjectDetails";
+import { getCloudinaryImage } from "../utils/cloudinary";
+
 
 const Project = ({
   title,
@@ -22,8 +24,15 @@ const Project = ({
           <p className="text-2xl">{title}</p>
           <div className="flex gap-5 mt-2 text-sand">
             {tags.map((tag) => (
-              <span key={tag.id}>{tag.name}</span>
-            ))}
+  <div key={tag.id} className="flex items-center gap-2">
+    <img
+      src={getCloudinaryImage(tag.icon, "w_32,h_32,q_auto,f_auto")}
+      alt={tag.name}
+      className="rounded"
+    />
+    <span>{tag.name}</span>
+  </div>
+))}
           </div>
         </div>
         <button
@@ -31,7 +40,11 @@ const Project = ({
           className="flex items-center gap-1 cursor-pointer hover-animation"
         >
           Read More
-          <img src="assets/arrow-right.svg" className="w-5" />
+           <img
+            src={getCloudinaryImage("arrow", "w_20,q_auto")}
+            className="w-5"
+            alt="arrow"
+          />
         </button>
       </div>
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
