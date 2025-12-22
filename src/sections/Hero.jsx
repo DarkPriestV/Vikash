@@ -44,9 +44,10 @@ const Hero = () => {
             {/* 🌆 Environment lighting for realism */}
             <Environment preset="city" />
           <Astronaut
-  scale={1}
-  position={[0.2, -1, 0]}
+  scale={1.2}
+  position={[0.2, -1.8, 0]}
   rotation={[0, 0.5, 0]}
+  
 />
 
               {/* <Astronaut

@@ -86,63 +86,36 @@
 // useGLTF.preload(MODEL_URL);
 
 
-/*
-3D Portrait Component
-(Replaces astronaut with your own portrait)
-*/import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import { Box3, Vector3 } from "three";
-import { useFrame } from "@react-three/fiber";
 
-
-const MODEL_URL = "/models/portrait.glb";
+const MODEL_URL = `${import.meta.env.BASE_URL}models/portrait.glb`;
 
 export function Astronaut({
-  position = [0.2, -1, 0],     // ⭐ ONLY control Y here
+  position = [0.2, -1.8, 0],     // ONLY Y controls height
   rotation = [0, Math.PI, 0], // face camera
+  scale = 1.2,                // ⭐ ONLY SCALE CONTROL
 }) {
   const group = useRef();
-  const model = useRef();
-
   const { scene, animations } = useGLTF(MODEL_URL);
   const { actions } = useAnimations(animations, group);
 
-  /* ▶ PLAY IDLE ANIMATION */
+  /* ▶ Play idle animation */
   useEffect(() => {
     if (!animations.length || !actions) return;
-
     const name = animations[0].name;
     actions[name]?.reset().fadeIn(0.4).play();
-
     return () => actions[name]?.fadeOut(0.3);
   }, [actions, animations]);
-
-  /* 🔥 CENTER + SCALE MODEL (NOT GROUP) */
-  useEffect(() => {
-    if (!model.current) return;
-
-    const box = new Box3().setFromObject(model.current);
-    const center = box.getCenter(new Vector3());
-    model.current.position.sub(center);
-
-    const size = box.getSize(new Vector3()).length();
-    const scale = 1.6 / size; // ⭐ CHANGE THIS ONLY for size
-    model.current.scale.setScalar(scale);
-  }, []);
-
-  useFrame(() => {
-  if (!group.current) return;
-  group.current.position.y = position[1];
-});
-
 
   return (
     <group
       ref={group}
-      position={position}   // ⭐ THIS CONTROLS Y (SAFE)
+      position={position}
       rotation={rotation}
+      scale={scale}
     >
-      <primitive ref={model} object={scene} />
+      <primitive object={scene} />
     </group>
   );
 }
